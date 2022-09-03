@@ -6,4 +6,4 @@ def latin_pig(word):
     else:
         return f'{word[1:] + word[0]}ay'
 
-print(latin_pig('uojtek'))
+print(latin_pig('Iojtek'))
