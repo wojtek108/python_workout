@@ -1,7 +1,7 @@
 
 def maxVowels(string):
     start = 0
-    for letter in string:
+    for letter in string.lower():
         if letter in 'aeiou':
             start = start + 1
     return start
