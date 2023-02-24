@@ -12,16 +12,17 @@ MOVIES = [('Parasite', 132, 'Bong Joon-ho'),
 FIELDS = {'name': 0,
           'length': 1,
           'director': 2}
-
 def sort_movies():
-    sort_by = input('Enter sort field: (name/lenght/director): ').strip()
-    if sort_by in FIELDS:
+    sort_by = input('Enter sort field, separte by " " for multiple fields: (name/lenght/director): ').split()
+    if all(item in FIELDS for item in sort_by):
         output = []
         template = '{0:30} {1:8} {2:20}'
-        for one_movie in sorted(MOVIES, key = operator.itemgetter(FIELDS[sort_by])):
+        for one_movie in sorted(MOVIES, key = operator.itemgetter(*[FIELDS[item] for item in sort_by])):
             output.append(template.format(*one_movie))
         return output
     print(f'No such field as {sort_by}')  
 
 
+
 print('\n'.join(sort_movies()))
+
